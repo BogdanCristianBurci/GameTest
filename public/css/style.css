@@ -1,0 +1,12 @@
+.game {
+  padding: 30px;
+}
+.text__center {
+  text-align: center;
+}
+
+.game__oponents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
