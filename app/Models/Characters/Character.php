@@ -22,6 +22,12 @@ class Character {
         $this->skills = [];
     }
 
+    /**
+     * @param int
+     * @return string
+     * 
+     * calculate character health value after an attack 
+     */
     public function takeDamage(int $damage):string
     {
         if($this->isLucky()){
@@ -38,6 +44,12 @@ class Character {
         
     }
 
+    /**
+     * @param Character
+     * @return int
+     * 
+     * calculate attacking player damage power
+     */
     public function attackPower(Character $opponent):int
     {
 
@@ -50,41 +62,83 @@ class Character {
         return $damage;
 
     }
+
+    /**
+     * @return int
+     * 
+     * retrieve player health
+     */
     public function getHealth():int
     {
         return $this->health;
     }
 
+    /**
+     * @return bool
+     * 
+     * display if character health is above 0
+     */
     public function isAlive():bool
     {
         return $this->health > 0;
     }
 
+    /**
+     * @return bool
+     * 
+     * calculate if a player is lucky based on his stats
+     */
     public function isLucky():bool
     {
         return mt_rand(0,99) < $this->luck;
     }
 
+    /**
+     * @param ISkill
+     * 
+     * @return void
+     * 
+     * adds a new skill to pleayer skills queue
+     */
     public function addSkill(ISkill $skill):void
     {
         array_push($this->skills,$skill);
     }
 
+    /**
+     * @return int
+     * 
+     * retrieve player speed
+     */
     public function getSpeed():int
     {
         return $this->speed;
     }
 
+     /**
+     * @return int
+     * 
+     * retrieve player luck
+     */
     public function getLuck():int
     {
         return $this->luck;
     }
 
+     /**
+     * @return string
+     * 
+     * retrieve player name
+     */
     public function getName():string
     {
         return $this->name;
     }
 
+     /**
+     *  
+     * display player stats
+     */
     public function __toString()
     {
         return 'Name: '.$this->name.

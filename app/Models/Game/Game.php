@@ -34,6 +34,10 @@ class Game {
         
     }
 
+    /**
+     
+     * change the attacking player
+     */
     public function switchPlayers():void
     {
         $temp = $this->attacker;
@@ -41,21 +45,41 @@ class Game {
         $this->defender = $temp;
     }
 
+    /**
+     * @return Character
+     * 
+     * return the attacking player
+     */
     public function getAttacker():Character
     {
         return $this->attacker;
     }
 
+     /**
+     * @return Character
+     * 
+     * return the defending player
+     */
     public function getDefender():Character
     {
         return $this->defender;
     }
 
+     /**
+     * @return Character
+     * 
+     * return the winner of the game
+     */
     public function getWinner():Character
     {
         return $this->attacker->getHealth() > $this->defender->getHealth() ? $this->attacker : $this->defender;
     }
 
+     /**
+     * @return bool
+     * 
+     * check if both players are alive
+     */
     public function bothPlayersAreAlive():bool
     {
         return $this->attacker->isAlive() && $this->defender->isAlive();
